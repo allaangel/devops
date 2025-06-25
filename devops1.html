@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Internship Program Registration</title>
+    <style>
+        body {
+            font-family: "Georgia", serif;
+            background: #f5f1e9;
+            background-image: radial-gradient(circle, #e6dcc9 1px, transparent 1px);
+            background-size: 40px 40px;
+            padding: 40px;
+            color: #3a2e1e;
+        }
+        .container {
+            max-width: 700px;
+            background: #fffaf0;
+            margin: 0 auto;
+            padding: 35px 40px;
+            border-radius: 10px;
+            border: 1px solid #c4b496;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            font-size: 16px;
+        }
+        h2 {
+            text-align: center;
+            color: #5b4636;
+            font-family: "Georgia", serif;
+            font-weight: normal;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #5b4636;
+            font-family: "Georgia", serif;
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e6dcc9;
+            padding-bottom: 5px;
+        }
+        label {
+            color: #5b4636;
+            font-weight: 600;
+            font-size: 1em;
+            margin-top: 18px;
+            display: block;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="url"],
+        input[type="number"],
+        select,
+        textarea {
+            font-family: "Georgia", serif;
+            font-size: 1em;
+            border: 1px solid #b5a77f;
+            background: #fefcf5;
+            color: #5b4636;
+            transition: border-color 0.3s ease;
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input:focus, select:focus, textarea:focus {
+            border-color: #8c7a4e;
+            outline: none;
+            background: #fffefb;
+        }
+        button {
+            background: #8c7a4e;
+            color: #fefcf5;
+            font-family: "Georgia", serif;
+            font-size: 1.1em;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 6px;
+            margin-top: 30px;
+            cursor: pointer;
+            box-shadow: 1px 1px 5px rgba(140, 122, 78, 0.7);
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background: #726440;
+        }
+        .error {
+            color: #b03020;
+            font-size: 0.9em;
+            margin-top: 3px;
+        }
+        .checkbox-group,
+        .radio-group {
+            margin-top: 10px;
+        }
+        .checkbox-group label,
+        .radio-group label {
+            font-weight: normal;
+            margin-right: 15px;
+            display: inline-block;
+            margin-top: 0;
+        }
+        textarea {
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Infosys Internship Program Registration</h2>
+    <form id="internshipForm" novalidate>
+        
+        <h3>Personal Information</h3>
+        <label for="firstname">First Name *</label>
+        <input type="text" id="firstname" name="firstname" placeholder="Your first name" required />
+        <div class="error" id="firstnameError"></div>
+        
+        <label for="lastname">Last Name *</label>
+        <input type="text" id="lastname" name="lastname" placeholder="Your last name" required />
+        <div class="error" id="lastnameError"></div>
+
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" placeholder="example@mail.com" required />
+        <div class="error" id="emailError"></div>
+
+        <label for="phone">Phone Number *</label>
+        <input type="tel" id="phone" name="phone" placeholder="+91 9876543210" required pattern="^\+?[0-9\s\-]{7,15}$" />
+        <div class="error" id="phoneError"></div>
+
+        <label for="address">Permanent Address *</label>
+        <textarea id="address" name="address" rows="3" placeholder="Your permanent address" required></textarea>
+        <div class="error" id="addressError"></div>
+
+        <label for="dob">Date of Birth *</label>
+        <input type="date" id="dob" name="dob" required max="2006-12-31" />
+        <div class="error" id="dobError"></div>
+
+        <label>Gender *</label>
+        <div class="radio-group">
+            <label><input type="radio" name="gender" value="Male" required /> Male</label>
+            <label><input type="radio" name="gender" value="Female" /> Female</label>
+            <label><input type="radio" name="gender" value="Other" /> Other</label>
+        </div>
+        <div class="error" id="genderError"></div>
+
+        ---
+
+        <h3>Educational Background</h3>
+        <label for="university">University *</label>
+        <input type="text" id="university" name="university" placeholder="Your university name" required />
+        <div class="error" id="universityError"></div>
+
+        <label for="degree">Degree Program *</label>
+        <select id="degree" name="degree" required>
+            <option value="">-- Select your degree --</option>
+            <option value="B.Tech/B.E.">B.Tech/B.E.</option>
+            <option value="M.Tech/M.E.">M.Tech/M.E.</option>
+            <option value="BCA">BCA</option>
+            <option value="MCA">MCA</option>
+            <option value="B.Sc">B.Sc</option>
+            <option value="M.Sc">M.Sc</option>
+            <option value="MBA">MBA</option>
+            <option value="PhD">PhD</option>
+            <option value="Other">Other</option>
+        </select>
+        <div class="error" id="degreeError"></div>
+
+        <label for="major">Major/Specialization *</label>
+        <input type="text" id="major" name="major" placeholder="e.g., Computer Science, Electrical Engineering" required />
+        <div class="error" id="majorError"></div>
+
+        <label for="cgpa">Current CGPA (out of 10) *</label>
+        <input type="number" id="cgpa" name="cgpa" step="0.01" min="0" max="10" placeholder="e.g., 8.5" required />
+        <div class="error" id="cgpaError"></div>
+
+        <label for="year">Year of Study *</label>
+        <select id="year" name="year" required>
+            <option value="">-- Select year --</option>
+            <option value="1">1st Year</option>
+            <option value="2">2nd Year</option>
+            <option value="3">3rd Year</option>
+            <option value="4">4th Year</option>
+            <option value="5+">5th Year or above</option>
+        </select>
+        <div class="error" id="yearError"></div>
+
+        ---
+
+        <h3>Skills and Experience</h3>
+        <label>Skills (select all that apply) *</label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" name="skills" value="Programming (Python, Java, C++)" /> Programming (Python, Java, C++)</label>
+            <label><input type="checkbox" name="skills" value="Data Analysis (R, SQL, Excel)" /> Data Analysis (R, SQL, Excel)</label>
+            <label><input type="checkbox" name="skills" value="Web Development (HTML, CSS, JavaScript)" /> Web Development (HTML, CSS, JavaScript)</label>
+            <label><input type="checkbox" name="skills" value="Cloud Computing (AWS, Azure, GCP)" /> Cloud Computing (AWS, Azure, GCP)</label>
+            <label><input type="checkbox" name="skills" value="Machine Learning/AI" /> Machine Learning/AI</label>
+            <label><input type="checkbox" name="skills" value="Project Management" /> Project Management</label>
+            <label><input type="checkbox" name="skills" value="Communication" /> Communication</label>
+            <label><input type="checkbox" name="skills" value="Problem Solving" /> Problem Solving</label>
+            <label><input type="checkbox" name="skills" value="Other" /> Other (specify below)</label>
+        </div>
+        <div class="error" id="skillsError"></div>
+
+        <label for="otherSkills">Other Skills (if 'Other' is selected)</label>
+        <input type="text" id="otherSkills" name="otherSkills" placeholder="e.g., UI/UX Design, Digital Marketing" />
+        <div class="error" id="otherSkillsError"></div>
+
+        <label for="workExperience">Relevant Work Experience/Projects</label>
+        <textarea id="workExperience" name="workExperience" rows="5" placeholder="Briefly describe any relevant work experience, internships, or academic projects."></textarea>
+        <div class="error" id="workExperienceError"></div>
+
+        ---
+
+        <h3>Online Profiles</h3>
+        <label for="linkedin">LinkedIn Profile URL</label>
+        <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/yourprofile" />
+        <div class="error" id="linkedinError"></div>
+
+        <label for="github">GitHub Profile URL</label>
+        <input type="url" id="github" name="github" placeholder="https://github.com/yourusername" />
+        <div class="error" id="githubError"></div>
+
+        <label for="portfolio">Portfolio/Personal Website URL</label>
+        <input type="url" id="portfolio" name="portfolio" placeholder="https://yourwebsite.com" />
+        <div class="error" id="portfolioError"></div>
+
+        ---
+
+        <h3>Internship Preferences</h3>
+        <label for="duration">Preferred Internship Duration *</label>
+        <select id="duration" name="duration" required>
+            <option value="">-- Select duration --</option>
+            <option value="1 month">1 month</option>
+            <option value="2 months">2 months</option>
+            <option value="3 months">3 months</option>
+            <option value="6 months">6 months</option>
+        </select>
+        <div class="error" id="durationError"></div>
+
+        <label for="startDate">Earliest Start Date *</label>
+        <input type="date" id="startDate" name="startDate" required />
+        <div class="error" id="startDateError"></div>
+
+        <label for="endDate">Latest End Date (if applicable)</label>
+        <input type="date" id="endDate" name="endDate" />
+        <div class="error" id="endDateError"></div>
+
+        <label for="motivation">Why do you want to join this internship? *</label>
+        <textarea id="motivation" name="motivation" rows="5" placeholder="Write your motivation here, highlighting your interest in Infosys and how this internship aligns with your career goals." required></textarea>
+        <div class="error" id="motivationError"></div>
+
+        <button type="submit">Submit Application</button>
+    </form>
+</div>
+
+<script>
+    const form = document.getElementById('internshipForm');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Clear previous errors
+        const errors = document.querySelectorAll('.error');
+        errors.forEach(err => err.textContent = '');
+
+        let valid = true;
+
+        // Validation functions
+        function validateRequired(field, errorElementId, message) {
+            if (!field.value.trim()) {
+                document.getElementById(errorElementId).textContent = message;
+                return false;
+            }
+            return true;
+        }
+
+        function validateMinLength(field, minLen, errorElementId, message) {
+            if (field.value.trim().length < minLen) {
+                document.getElementById(errorElementId).textContent = message;
+                return false;
+            }
+            return true;
+        }
+
+        function validateEmail(field, errorElementId, message) {
+            if (!field.value.trim().match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                document.getElementById(errorElementId).textContent = message;
+                return false;
+            }
+            return true;
+        }
+
+        function validatePhone(field, errorElementId, message) {
+            if (!field.value.trim().match(/^\+?[0-9\s\-]{7,15}$/)) {
+                document.getElementById(errorElementId).textContent = message;
+                return false;
+            }
+            return true;
+        }
+
+        function validateDateOfBirth(field, errorElementId, messageAdult) {
+            if (!field.value) {
+                document.getElementById(errorElementId).textContent = 'Please select your date of birth.';
+                return false;
+            }
+            const dobDate = new Date(field.value);
+            const maxDate = new Date('2006-12-31'); // Minimum age ~18
+            if (dobDate > maxDate) {
+                document.getElementById(errorElementId).textContent = messageAdult;
+                return false;
+            }
+            return true;
+        }
+
+        function validateRadioGroup(name, errorElementId, message) {
+            const radioButtons = document.getElementsByName(name);
+            const isChecked = [...radioButtons].some(radio => radio.checked);
+            if (!isChecked) {
+                document.getElementById(errorElementId).textContent = message;
+                return false;
+            }
+            return true;
+        }
+
+        function validateCheckboxGroup(name, errorElementId, message) {
+            const checkboxes = document.getElementsByName(name);
+            const isChecked = [...checkboxes].some(checkbox => checkbox.checked);
+            if (!isChecked) {
+                document.getElementById(errorElementId).textContent = message;
+                return false;
+            }
+            return true;
+        }
+
+        function validateCGPA(field, errorElementId, message) {
+            const cgpaValue = parseFloat(field.value);
+            if (isNaN(cgpaValue) || cgpaValue < 0 || cgpaValue > 10) {
+                document.getElementById(errorElementId).textContent = message;
+                return false;
+            }
+            return true;
+        }
+
+        function validateURL(field, errorElementId, message) {
+            const url = field.value.trim();
+            if (url && !url.match(/^(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/[a-zA-Z0-9]+\.[^\s]{2,}|[a-zA-Z0-9]+\.[^\s]{2,})$/i)) {
+                document.getElementById(errorElementId).textContent = message;
+                return false;
+            }
+            return true;
+        }
+        
+        function validateDateRange(startDateField, endDateField, startDateErrorId, endDateErrorId, dateOrderMessage) {
+            const startDate = new Date(startDateField.value);
+            const endDate = new Date(endDateField.value);
+
+            if (!startDateField.value) {
+                document.getElementById(startDateErrorId).textContent = 'Please select a start date.';
+                return false;
+            }
+
+            if (endDateField.value && startDate > endDate) {
+                document.getElementById(endDateErrorId).textContent = dateOrderMessage;
+                return false;
+            }
+            return true;
+        }
+
+
+        // --- Run all validations ---
+        // Personal Information
+        valid = validateMinLength(form.firstname, 2, 'firstnameError', 'Please enter your first name (at least 2 characters).') && valid;
+        valid = validateMinLength(form.lastname, 2, 'lastnameError', 'Please enter your last name (at least 2 characters).') && valid;
+        valid = validateEmail(form.email, 'emailError', 'Please enter a valid email address.') && valid;
+        valid = validatePhone(form.phone, 'phoneError', 'Please enter a valid phone number.') && valid;
+        valid = validateMinLength(form.address, 10, 'addressError', 'Please enter your permanent address (at least 10 characters).') && valid;
+        valid = validateDateOfBirth(form.dob, 'dobError', 'You must be at least 18 years old.') && valid;
+        valid = validateRadioGroup('gender', 'genderError', 'Please select your gender.') && valid;
+
+        // Educational Background
+        valid = validateMinLength(form.university, 2, 'universityError', 'Please enter your university name.') && valid;
+        valid = validateRequired(form.degree, 'degreeError', 'Please select your degree program.') && valid;
+        valid = validateMinLength(form.major, 2, 'majorError', 'Please enter your major or specialization.') && valid;
+        valid = validateCGPA(form.cgpa, 'cgpaError', 'Please enter a valid CGPA between 0 and 10.') && valid;
+        valid = validateRequired(form.year, 'yearError', 'Please select your year of study.') && valid;
+
+        // Skills and Experience
+        valid = validateCheckboxGroup('skills', 'skillsError', 'Please select at least one skill.') && valid;
+        // Conditional validation for otherSkills
+        const otherSkillsCheckbox = [...form.skills].find(cb => cb.value === 'Other');
+        if (otherSkillsCheckbox && otherSkillsCheckbox.checked) {
+            valid = validateMinLength(form.otherSkills, 2, 'otherSkillsError', 'Please specify your other skills.') && valid;
+        } else {
+            // Clear error if 'Other' is not checked and there's text
+            document.getElementById('otherSkillsError').textContent = '';
+        }
+        // Work experience is optional, no required validation here, but a min length could be added if needed
+        // valid = validateMinLength(form.workExperience, 20, 'workExperienceError', 'Please provide a brief description of your experience/projects (at least 20 characters).') && valid;
+
+
+        // Online Profiles (optional fields, only validate if a value is entered)
+        if (form.linkedin.value.trim()) {
+            valid = validateURL(form.linkedin, 'linkedinError', 'Please enter a valid LinkedIn URL.') && valid;
+        }
+        if (form.github.value.trim()) {
+            valid = validateURL(form.github, 'githubError', 'Please enter a valid GitHub URL.') && valid;
+        }
+        if (form.portfolio.value.trim()) {
+            valid = validateURL(form.portfolio, 'portfolioError', 'Please enter a valid Portfolio/Website URL.') && valid;
+        }
+
+        // Internship Preferences
+        valid = validateRequired(form.duration, 'durationError', 'Please select preferred internship duration.') && valid;
+        valid = validateDateRange(form.startDate, form.endDate, 'startDateError', 'endDateError', 'End date cannot be before start date.') && valid;
+        valid = validateMinLength(form.motivation, 50, 'motivationError', 'Please write a comprehensive motivation (at least 50 characters).') && valid;
+
+
+        if (valid) {
+            alert('Thank you for applying! Your application has been submitted successfully.');
+            form.reset();
+        } else {
+            alert('Please fix the errors in the form before submitting.');
+        }
+    });
+</script>
+
+</body>
+</html>
